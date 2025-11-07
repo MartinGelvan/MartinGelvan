@@ -1,0 +1,119 @@
+/* 🔹 Fondo de pantalla completa */
+body,
+html {
+  padding: 0%;
+  margin: auto;
+}
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(135deg, #4f46e5, #9333ea);
+  overflow-y: auto; /* habilita scroll si el formulario es largo */
+}
+.titulo {
+  color: #4f46e5 !important;
+}
+/* 🔹 Tarjeta del formulario */
+.auth-form {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  animation: fadeInUp 0.6s ease;
+}
+
+/* 🔹 Hover */
+.auth-form:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* 🔹 Título */
+.auth-form h2 {
+  margin-bottom: 1.8rem;
+  color: #4f46e5;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+/* 🔹 Campos */
+.auth-form input {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-form input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 6px rgba(79, 70, 229, 0.4);
+  outline: none;
+}
+
+/* 🔹 Botón */
+.auth-form button {
+  width: 100%;
+  padding: 1rem;
+  background-color: #4f46e5;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.auth-form button:hover {
+  background-color: #4338ca;
+  transform: scale(1.03);
+}
+
+/* 🔹 Texto inferior */
+.auth-form p {
+  margin-top: 1.2rem;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.auth-form a {
+  color: #4f46e5;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-form a:hover {
+  text-decoration: underline;
+}
+
+/* 🔹 Animación */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🔹 Ajustes para pantallas chicas */
+@media (max-height: 700px) {
+  .auth-container {
+    align-items: flex-start; /* sube el formulario */
+  }
+
+  .auth-form {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+}

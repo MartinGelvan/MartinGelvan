@@ -1,0 +1,162 @@
+/* === Sección Principal === */
+.home {
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, #ffdf29, #723fff);
+  color: #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.hero {
+  width: 100%;
+  height: 80vh; /* ocupamos casi toda la pantalla */
+  background-image: url("../../src/assets/images/Banner.jpg") !important;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 90px;
+}
+
+/* Capa oscura sobre la imagen para mejorar contraste del texto */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.158); /* semitransparente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.hero-content h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  color: #f0f0f0;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+}
+
+/* === Cartas === */
+.cartas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 2rem;
+  width: 90%;
+  max-width: 1100px;
+  margin-bottom: 3rem;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+/* === Card === */
+.card {
+  background: rgba(30, 30, 30, 0.8);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 25px rgba(168, 85, 247, 0.4);
+}
+
+.card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 1.2rem;
+  text-align: center;
+}
+
+.card-body h5 {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.card-body p {
+  font-size: 0.95rem;
+  color: #bdbdbd;
+  margin-bottom: 1rem;
+}
+
+/* === Botón === */
+.btn {
+  display: inline-block;
+  background: linear-gradient(90deg, #6366f1, #a855f7);
+  color: #fff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #a855f7, #ec4899);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+}
+
+/* === Animaciones === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Responsive === */
+@media (max-width: 600px) {
+  .hero h2 {
+    font-size: 1.6rem;
+  }
+  .cartas {
+    gap: 1.2rem;
+  }
+}

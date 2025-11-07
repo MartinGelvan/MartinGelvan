@@ -1,0 +1,119 @@
+/* === HEADER GENERAL === */
+.header {
+  width: 100%;
+  background: radial-gradient(circle at top left, #ffdf29, #723fff);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  margin-top: -30px;
+}
+
+/* === CONTENEDOR PRINCIPAL === */
+.header-container {
+  max-width: 1250px;
+  margin: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* === LOGO === */
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #6d28d9, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.logo span {
+  color: #fff;
+}
+
+/* === NAVEGACIÓN === */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  transition: transform 0.3s ease;
+  margin: 0; /* ✅ evita desplazamientos laterales */
+  padding: 0;
+}
+
+.nav-links li a {
+  color: #e5e5e5;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #a855f7;
+}
+
+/* === BOTÓN DE LOGOUT === */
+.logout-btn {
+  background: linear-gradient(90deg, #6366f1, #a855f7);
+  color: #fff;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.logout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(168, 85, 247, 0.4);
+}
+
+/* === MENU MÓVIL === */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #e5e5e5;
+  cursor: pointer;
+}
+
+.menu-toggle.active {
+  color: #a855f7;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: rgba(15, 15, 15, 0.95);
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    transform: translateY(-200%);
+  }
+
+  .nav-links.open {
+    transform: translateY(0);
+  }
+}
+
+/* === FIX: deja espacio para el header en el body === */
+body {
+  padding-top: 65px; /* ✅ ajusta según la altura del header */
+  margin: 0;
+  background-color: #111;
+}

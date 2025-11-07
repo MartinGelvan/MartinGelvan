@@ -1,0 +1,117 @@
+h2,
+h1,
+h3 {
+  color: white !important;
+}
+
+.admin-dashboard {
+  padding: 20px;
+  max-width: 100%;
+  margin: auto;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top left, #ffdf29, #723fff);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.admin-section {
+  margin-bottom: 50px;
+}
+
+.admin-section h2 {
+  color: #444;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+}
+
+.usuarios-list,
+.tipos-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.usuario-item,
+.tipo-item {
+  background-color: #f8f8f8;
+  padding: 10px 15px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn,
+button {
+  padding: 6px 12px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.form-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.form-panel input,
+.form-panel select,
+.form-panel textarea {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card-buttons {
+  display: flex;
+  gap: 5px;
+}
