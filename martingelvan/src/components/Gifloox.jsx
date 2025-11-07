@@ -56,10 +56,10 @@ export const Gifloox = () => {
     setLoading(true);
     try {
       await emailjs.send(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
+        "service_cnpd73f",
+        "template_dm3s1sw",
         formData,
-        "YOUR_PUBLIC_KEY"
+        "4zXsfn2aPo6y_Unbo"
       );
       setSuccess(true);
       setFormData({
