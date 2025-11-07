@@ -47,7 +47,7 @@ export const GelvanCocina = () => {
         "service_cnpd73f",
         "template_dm3s1sw",
         formData,
-        "4zXsfn2aPo6y_Unbo"
+        "j4X89sa_z5zLURDP0"
       );
       setSuccess(true);
       setFormData({ name: "", email: "", plato: "", cantidad: 1, mensaje: "" });
