@@ -549,18 +549,25 @@ export const AdminPanel = () => {
           {/* Campos para Remera Estampada */}
           {formDataProductos.tipo === "Remera Estampada" && (
             <>
-              <select
+              {/* Selección de sexo */}
+              <input
+                type="text"
                 name="sexo"
-                value={formDataProductos.sexo}
-                onChange={handleChangeProductos}
-                required
-              >
-                <option value="">Seleccionar sexo</option>
-                <option value="Hombre">Hombre</option>
-                <option value="Mujer">Mujer</option>
-                <option value="Unisex">Unisex</option>
-              </select>
+                placeholder='Escribir sexos separados por coma (Ej: "Hombre, Mujer, Unisex")'
+                value={
+                  Array.isArray(formDataProductos.sexo)
+                    ? formDataProductos.sexo.join(", ")
+                    : formDataProductos.sexo || ""
+                }
+                onChange={(e) =>
+                  setFormDataProductos((prev) => ({
+                    ...prev,
+                    sexo: e.target.value.split(",").map((s) => s.trim()),
+                  }))
+                }
+              />
 
+              {/* Talles */}
               <button
                 type="button"
                 onClick={() => setMostrarTalles((prev) => !prev)}
@@ -571,8 +578,12 @@ export const AdminPanel = () => {
                 <input
                   type="text"
                   name="talle"
-                  placeholder='Escribir talles separados por coma (Ej: "S, M")'
-                  value={formDataProductos.talle.join(", ")}
+                  placeholder='Escribir talles separados por coma (Ej: "S, M, L, XL")'
+                  value={
+                    Array.isArray(formDataProductos.talle)
+                      ? formDataProductos.talle.join(", ")
+                      : formDataProductos.talle || ""
+                  }
                   onChange={(e) =>
                     setFormDataProductos((prev) => ({
                       ...prev,
@@ -581,6 +592,8 @@ export const AdminPanel = () => {
                   }
                 />
               )}
+
+              {/* Color */}
               <input
                 type="text"
                 name="color"
@@ -666,13 +679,31 @@ export const AdminPanel = () => {
                 <button
                   onClick={() => {
                     setEditingId(p.productoId);
-                    setFormDataProductos(p);
+                    setFormDataProductos({
+                      ...p,
+                      estilo: Array.isArray(p.estilo)
+                        ? p.estilo
+                        : typeof p.estilo === "string"
+                        ? p.estilo.split(",").map((s) => s.trim())
+                        : [],
+                      talle: Array.isArray(p.talle)
+                        ? p.talle
+                        : typeof p.talle === "string"
+                        ? p.talle.split(",").map((s) => s.trim())
+                        : [],
+                      sexo: Array.isArray(p.sexo)
+                        ? p.sexo
+                        : typeof p.sexo === "string"
+                        ? p.sexo.split(",").map((s) => s.trim())
+                        : [],
+                    });
                     if (p.estilo && p.estilo.length > 0)
                       setMostrarEstilos(true);
                   }}
                 >
                   Editar
                 </button>
+
                 <button onClick={() => eliminarProducto(p.productoId)}>
                   Eliminar
                 </button>

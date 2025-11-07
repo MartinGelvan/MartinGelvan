@@ -108,6 +108,13 @@ export const Gifloox = () => {
               <h3>{p.nombre}</h3>
               <p className="precio">${p.precio}</p>
               <p>{p.descripcion}</p>
+              {p.talle && (
+                <p>
+                  <strong>Talle:</strong>{" "}
+                  {Array.isArray(p.talle) ? p.talle.join(", ") : p.talle}
+                </p>
+              )}
+
               {p.tipo && (
                 <p>
                   <strong>Tipo:</strong> {p.tipo}
@@ -191,14 +198,51 @@ export const Gifloox = () => {
                   onChange={handleChange}
                   required
                 />
-                <input
-                  type="text"
-                  name="talle"
-                  placeholder="Talle"
-                  value={formData.talle}
-                  onChange={handleChange}
-                  required
-                />
+
+                {/* Talle */}
+                {productoSeleccionado.talle &&
+                  Array.isArray(productoSeleccionado.talle) &&
+                  productoSeleccionado.talle.length > 0 && (
+                    <select
+                      name="talle"
+                      value={formData.talle}
+                      onChange={handleChange}
+                      required
+                    >
+                      <option value="">Elegí un Talle</option>
+                      {productoSeleccionado.talle.map((e, i) => (
+                        <option key={i} value={e}>
+                          {e}
+                        </option>
+                      ))}
+                    </select>
+                  )}
+
+                {/* Sexo */}
+                {productoSeleccionado.sexo &&
+                  (Array.isArray(productoSeleccionado.sexo)
+                    ? productoSeleccionado.sexo.length > 0
+                    : typeof productoSeleccionado.sexo === "string") && (
+                    <select
+                      name="sexo"
+                      value={formData.sexo}
+                      onChange={handleChange}
+                      required
+                    >
+                      <option value="">Elegí un Sexo</option>
+                      {(Array.isArray(productoSeleccionado.sexo)
+                        ? productoSeleccionado.sexo
+                        : productoSeleccionado.sexo
+                            .split(",")
+                            .map((s) => s.trim())
+                      ).map((e, i) => (
+                        <option key={i} value={e}>
+                          {e}
+                        </option>
+                      ))}
+                    </select>
+                  )}
+
                 <input
                   type="text"
                   name="color"
