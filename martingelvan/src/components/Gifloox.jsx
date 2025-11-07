@@ -57,7 +57,7 @@ export const Gifloox = () => {
     try {
       await emailjs.send(
         "service_cnpd73f",
-        "template_dm3s1sw",
+        "template_e7ylhqj",
         formData,
         "j4X89sa_z5zLURDP0"
       );
